@@ -22,7 +22,6 @@ export const FormListItem: React.FC<FormListItemProps> = ({ index, updateInvoice
 
   const handleProductSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (isNaN(parseInt(e.target.value))) return;
-
     setProduct(item => ({
       productId: parseInt(e.target.value),
       quantity: item.quantity
@@ -30,9 +29,8 @@ export const FormListItem: React.FC<FormListItemProps> = ({ index, updateInvoice
   }
 
   const updateQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = parseInt(e.target.value);
+    const value = parseInt(e.target.value);
     if (isNaN(value)) return;
-
     setProduct(item => ({
       productId: item.productId,
       quantity: value
@@ -61,7 +59,7 @@ export const FormListItem: React.FC<FormListItemProps> = ({ index, updateInvoice
         }
       </select>
       <input
-        onChange={updateQuantity}
+        onChange={e => updateQuantity(e)}
         type="number" min={0}
         max={10}
         className='w-18 p-3 px-4 border rounded-lg border-gray-200 hover:border-gray-300'

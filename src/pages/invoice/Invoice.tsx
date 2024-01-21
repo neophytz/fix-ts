@@ -35,9 +35,12 @@ export const Invoice = () => {
     }
 
     const removeItem = (index: number) => {
-        formItemsList.splice(index, 1);
-        setFormItemsList(formItemsList);
+        const updatedList = [...formItemsList];
+        updatedList.splice(index, 1);
+        setFormItemsList(updatedList);
+        // console.log(updatedList);
     }
+
 
     return (
         <section className='container mx-auto my-10 p-10 rounded outline outline-1 outline-gray-200 bg-gray-50'>
